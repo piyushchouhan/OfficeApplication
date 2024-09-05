@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    image: yourappname:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=officeDb;User Id=sa;Password=Your_password123;
+      - ConnectionStrings__MongoDbConnection=mongodb://mongo:27017
+      - ConnectionStrings__MongoDbDatabase=OfficeDB
+    depends_on:
+      - sqlserver
+      - mongo
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    ports:
+      - "1433:1433"
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
