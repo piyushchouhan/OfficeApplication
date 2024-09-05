@@ -35,7 +35,7 @@ Sure! Here’s a `README.md` template for the **OfficeApplication** project base
 
 ## Technologies Used
 
-- **.NET 6:** Framework for building the Web API.
+- **.NET 8:** Framework for building the Web API.
 - **ASP.NET Core:** For creating RESTful API endpoints.
 - **Entity Framework Core:** ORM for SQL Server database interactions.
 - **SQL Server:** Database for storing employee data.
